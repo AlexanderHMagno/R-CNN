@@ -11,7 +11,7 @@ num_classes = 2
 in_features = model.roi_heads.box_predictor.cls_score.in_features
 model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
 
-model.load_state_dict(torch.load("models/plane_detector.pth", map_location=device))
+model.load_state_dict(torch.load("models/frozen_plane_detector.pth", map_location=device))
 model.to(device)
 model.eval()
 

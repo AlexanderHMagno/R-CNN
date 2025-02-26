@@ -3,7 +3,7 @@ import torchvision.models as models
 import torch.optim as optim
 from torchvision.models.detection import FasterRCNN_ResNet50_FPN_Weights
 from torch.utils.data import DataLoader
-from src.dataset import PlaneDataset, transform
+from dataset import PlaneDataset, transform
 
 # Load dataset
 dataset = PlaneDataset("Images", "Annotations", transform=transform)
@@ -30,7 +30,7 @@ optimizer = optim.Adam(model.roi_heads.parameters(), lr=0.0001)
 
 # Training loop
 num_epochs = 5
-for epoch in range(num_epochs):
+for epoch in range(num_epochs): 
     model.train()
     total_loss = 0
 
