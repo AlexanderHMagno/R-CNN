@@ -5,7 +5,7 @@ colorFrom: blue
 colorTo: green
 sdk: gradio
 sdk_version: 5.18.0
-app_file: app.py
+app_file: src/app.py
 pinned: false
 short_description: Using RCNN and Fully connected to detect Planes in objects
 ---
