@@ -6,8 +6,8 @@ model:
   epochs: 10
   batch_size: 8
   optimizer: adam
-  image_sample_size: 10
-  trainable_backbone_layers: 3
+  image_sample_size: 10000
+  trainable_backbone_layers: 1
 
 dataset:
   image_dir: datasets/images
@@ -16,10 +16,10 @@ dataset:
   val_split: 0.2
 
 notebooks:
-  visualization: models/training_log.json
+  visualization: logs/training_log.json
 
 logs:
-  log_dir: models/training_log.txt
+  log_dir: logs/training_log.txt
   log_interval: 10
 
 evaluation:
