@@ -59,6 +59,8 @@ def train_one_epoch(model, optimizer, data_loader, device):
 
         loss_dict = model(images, targets)
         loss = sum(loss for loss in loss_dict.values())
+        if(batch_idx % 100 == 0):
+            log_message(f"Iteration {batch_idx+1}, Loss: {loss.item()}")
 
         optimizer.zero_grad()
         loss.backward()
@@ -70,7 +72,7 @@ def train_one_epoch(model, optimizer, data_loader, device):
 
 def store_log(loss, mAP):
     # Save log in JSON for visualization
-    log_json = config["logs"]["log_dir"]
+    log_json = config["notebooks"]["visualization"]
     if not os.path.exists(log_json):
         log_data = {"loss": [], "mAP": []}
     else:
