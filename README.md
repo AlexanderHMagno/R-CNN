@@ -119,6 +119,6 @@ python src/evaluate.py
 ## 🏆 **Contributors**
 - 👤 **Alex** - Machine Learning Engineer
 
-📧 **Contact**: [Your Email]  
+
 
 🚀 **Happy Training!**  
