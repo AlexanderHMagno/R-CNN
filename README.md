@@ -96,6 +96,19 @@ evaluation:
 
 ---
 
+## 📝 **Training Strategies for Faster R-CNN with ResNet-50 Backbone**
+
+| Trainable Backbone Layers | Epochs | Batch Size | Recommended Learning Rate | Optimizer | Scheduler         |
+|--------------------------|--------|-----------|--------------------------|-----------|------------------|
+| 0                        | 10     | 4         | 0.0100                   | SGD       | StepLR(3, 0.1)   |
+| 3                        | 10     | 8         | 0.0050                   | SGD       | StepLR(3, 0.1)   |
+| 5                        | 10     | 16        | 0.0001                   | AdamW     | CosineAnnealing  |
+| 3                        | 20     | 8         | 0.0050                   | SGD       | StepLR(5, 0.1)   |
+| 5                        | 20     | 16        | 0.0001                   | AdamW     | CosineAnnealing  |
+
+
+---
+
 ## 📡 **Evaluating the Model**
 Once training is complete, evaluate performance using:
 ```bash

@@ -15,11 +15,11 @@ with open("config.yaml", "r") as f:
     config = yaml.safe_load(f)
 
 # Load Pretrained Model
-model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights="DEFAULT")
+model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights="DEFAULT", trainable_backbone_layers=config["model"]["trainable_backbone_layers"])
 
-# Freeze Backbone
-for param in model.backbone.parameters():
-    param.requires_grad = False
+# # Freeze Backbone
+# for param in model.backbone.parameters():
+#     param.requires_grad = False
 
 # Modify Predictor
 num_classes = config["model"]["num_classes"]
