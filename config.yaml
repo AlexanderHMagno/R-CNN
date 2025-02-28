@@ -3,7 +3,7 @@ model:
   num_classes: 2
   pretrained: true
   learning_rate: 0.0001
-  epochs: 5
+  epochs: 20
   batch_size: 8
   optimizer: adam
   image_sample_size: 10
@@ -16,6 +16,10 @@ dataset:
 
 notebooks:
   visualization: models/training_log.json
+
+logs:
+  log_dir: models/training_log.txt
+  log_interval: 10
 
 evaluation:
   iou_threshold: 0.5

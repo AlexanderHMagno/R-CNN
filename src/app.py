@@ -43,13 +43,17 @@ def predict(image):
     
     return  image, results
 
+def get_examples():
+    return [os.path.join("datasets/test_images", f) for f in os.listdir("datasets/test_images")]
+
 # Gradio Interface
 demo = gr.Interface(
     fn=predict,
     inputs=gr.Image(type="numpy"),
     outputs=[gr.Image(type="pil"), gr.JSON()],
     title="LEGO Detection with Faster R-CNN",
-    description="Upload an image and the model will detect LEGO bricks with bounding boxes."
+    description="Upload an image and the model will detect LEGO bricks with bounding boxes.",
+    examples=get_examples()
 )
 
 demo.launch()

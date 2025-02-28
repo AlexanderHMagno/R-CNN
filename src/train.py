@@ -43,9 +43,9 @@ train_loader = DataLoader(train_dataset, batch_size=config["model"]["batch_size"
 val_loader = DataLoader(val_dataset, batch_size=config["model"]["batch_size"], shuffle=False, collate_fn=lambda x: tuple(zip(*x)))
 
 # Logging Function (Writes logs efficiently to file)
-log_file = "models/training_log.txt"
+
 def log_message(message):
-    with open(log_file, "a") as f:
+    with open(config["logs"]["log_dir"], "a") as f:
         f.write(message + "\n")
 
 # Training Function with tqdm progress bar
@@ -68,21 +68,9 @@ def train_one_epoch(model, optimizer, data_loader, device):
 
     return running_loss / len(data_loader)
 
-# Train Model with Logging
-num_epochs = config["model"]["epochs"]
-os.makedirs("models", exist_ok=True)  # Ensure model directory exists
-
-for epoch in range(num_epochs):
-    log_message(f"Starting Epoch {epoch+1}/{num_epochs}")
-    loss = train_one_epoch(model, optimizer, train_loader, device)
-    log_message(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss:.4f}")
-
-    # Evaluate mAP after each epoch
-    mAP = calculate_map(model, val_loader, device)
-    log_message(f"Validation mAP: {mAP:.4f}")
-
+def store_log(loss, mAP):
     # Save log in JSON for visualization
-    log_json = "models/training_log.json"
+    log_json = config["logs"]["log_dir"]
     if not os.path.exists(log_json):
         log_data = {"loss": [], "mAP": []}
     else:
@@ -94,6 +82,20 @@ for epoch in range(num_epochs):
 
     with open(log_json, "w") as f:
         json.dump(log_data, f, indent=4)
+
+# Train Model with Logging
+num_epochs = config["model"]["epochs"]
+os.makedirs("models", exist_ok=True)  # Ensure model directory exists
+
+for epoch in range(num_epochs):
+    log_message(f"Starting Epoch {epoch+1}/{num_epochs}")
+    loss = train_one_epoch(model, optimizer, train_loader, device)
+    # Evaluate mAP after each epoch
+    mAP = calculate_map(model, val_loader, device)
+    ##save model
+    torch.save(model.state_dict(), f"models/records/lego_fasterrcnn_{epoch+1}.pth")
+    ##store log
+    store_log(loss, mAP)
 
 # Save the trained model
 torch.save(model.state_dict(), "models/lego_fasterrcnn.pth")
