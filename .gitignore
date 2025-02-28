@@ -2,4 +2,6 @@
 /Annotations
 .qodo
 venv/
-/lego
+/datasets/annotations/*
+/datasets/images/*
+src/__pycache__/

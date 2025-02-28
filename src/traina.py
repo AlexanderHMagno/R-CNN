@@ -7,8 +7,8 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader, random_split
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.transforms import functional as F
-from dataset import LegoDataset
-from evaluate import calculate_map
+from src.dataset import LegoDataset
+from src.evaluate import calculate_map
 
 # Load Configuration
 with open("config.yaml", "r") as f:
