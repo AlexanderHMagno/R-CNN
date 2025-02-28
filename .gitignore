@@ -5,3 +5,4 @@ venv/
 /datasets/annotations/*
 /datasets/images/*
 src/__pycache__/
+models/lego
