@@ -10,14 +10,10 @@ pinned: false
 short_description: Using RCNN and Fully connected to detect Planes in objects
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-
-
-
 
 # LEGO Object Detection using Faster R-CNN
 
-![Faster R-CNN](https://upload.wikimedia.org/wikipedia/commons/4/4b/Faster_R-CNN.png)
+[Faster R-CNN](https://pytorch.org/vision/main/models/generated/torchvision.models.detection.fasterrcnn_resnet50_fpn.html)
 
 This project trains a **Faster R-CNN** model with a **ResNet-50 backbone** to detect LEGO objects using a custom dataset.
 
@@ -123,6 +119,6 @@ python src/evaluate.py
 ## 🏆 **Contributors**
 - 👤 **Alex** - Machine Learning Engineer
 
-📧 **Contact**: [Your Email]  
+
 
 🚀 **Happy Training!**  
