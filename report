@@ -66,6 +66,8 @@ The model is deployed as an **interactive Gradio web application** on **Hugging 
 2. Upload an image containing LEGO pieces.
 3. Click "Run" to generate bounding box predictions.
 
+![Gradio](interface.png)
+
 ## **5. Conclusion**
 This project successfully fine-tuned a **pretrained Faster R-CNN model** for LEGO piece detection, achieving **78.2% mAP@0.5**. Future improvements include:
 - Optimizing for **real-time inference**.
