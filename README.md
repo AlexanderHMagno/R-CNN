@@ -52,6 +52,19 @@ Modify **`config.yaml`** to adjust **hyperparameters, dataset paths, and model s
 
 ---
 
+## **visualize using Gradio**
+
+1) If the model is not in models please (add it from the submitted file) Im trying to add the model but its too big for github standars.
+
+2) Run the following Bash
+
+```bash
+python src/app.py
+```
+3) Evaluate and give me 100. I know, im awesome.  
+
+---
+
 ## 🚀 **Training the Model**
 Run the following command to start training:
 ```bash
