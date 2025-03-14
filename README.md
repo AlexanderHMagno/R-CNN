@@ -7,7 +7,7 @@ sdk: gradio
 sdk_version: 5.18.0
 app_file: src/app.py
 pinned: false
-short_description: Using RESTNET-RCNN with a RPN (Regional Proposal Network) and  A FNN to detect lego pieces
+short_description: Using RESTNET-RCNN with a RPN and A FNN to detect lego pieces
 ---
 
 
