@@ -37,6 +37,7 @@ The **Faster R-CNN** architecture consists of three main components:
 - **Mean Average Precision (mAP)**: Evaluates precision-recall across IoU thresholds.
 - **Intersection over Union (IoU)**: Measures predicted vs. ground truth bounding boxes.
 - **Inference Speed**: Measures real-time processing capability.
+![Training](epochs.png)
 
 ## **3. Results and Discussion**
 
