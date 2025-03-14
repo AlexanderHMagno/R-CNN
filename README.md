@@ -7,7 +7,7 @@ sdk: gradio
 sdk_version: 5.18.0
 app_file: src/app.py
 pinned: false
-short_description: Using RCNN and Fully connected to detect Planes in objects
+short_description: Using RESTNET-RCNN with a RPN (Regional Proposal Network) and  A FNN to detect lego pieces
 ---
 
 
@@ -18,22 +18,54 @@ short_description: Using RCNN and Fully connected to detect Planes in objects
 This project trains a **Faster R-CNN** model with a **ResNet-50 backbone** to detect LEGO objects using a custom dataset.
 
 ---
+## 🔍 Project Overview
+
+This project implements an advanced object detection system specifically designed for LEGO pieces using a combination of powerful deep learning architectures:
+
+1. **ResNet-50 Backbone**: 
+   - Serves as the feature extractor
+   - Pre-trained on ImageNet for robust feature learning
+   - Deep residual learning framework for improved training of deep networks
+
+2. **Region Proposal Network (RPN)**:
+   - Scans the image and proposes potential object regions
+   - Generates anchor boxes of various scales and ratios
+   - Outputs "objectness" scores and bounding box refinements
+
+3. **Fast Neural Network (FNN)**:
+   - Performs final classification and bounding box regression
+   - Takes features from proposed regions
+   - Outputs class probabilities and precise box coordinates
+
+### Key Features
+
+- **End-to-End Training**: The entire network is trained jointly for optimal performance
+- **Multi-Scale Detection**: Capable of detecting LEGO pieces of varying sizes
+- **Real-Time Processing**: Efficient architecture allows for quick inference
+- **High Accuracy**: Achieves strong mean Average Precision (mAP) on LEGO detection
 
 ## **Project Structure**
 ```yaml
 lego_detection/
 │── models/                   # Trained models
 │   ├── lego_fasterrcnn.pth   # Saved model
+│   ├── faster_rcnn_custom.pth   # Latest model
 │
 │── datasets/                  # Dataset folder
 │   ├── images/                # Training images
 │   ├── annotations/           # Corresponding XML annotations
+│   ├── test_images/           # Testing the model
+│   ├── annotations.json/      # To format annotation in one only file
 │
 │── src/                       # Source code
-│   ├── dataset.py             # Dataset class (LegoDataset)
-│   ├── train.py               # Training script
-│   ├── evaluate.py            # mAP Calculation
-│   ├── utils.py               # IoU, AP calculation functions
+│   ├── transformdata.py       # Formats the data to COCO.json
+│   ├── new_trainer.py         # Train the model based on the new assumptions
+│   ├── app.py                 # Allow users to interact with this model
+│   ├── Attempt1               # First Implementation
+│     ├── dataset.py             # Dataset class (LegoDataset)
+│     ├── train.py               # Training script
+│     ├── evaluate.py            # mAP Calculation
+│     ├── utils.py               # IoU, AP calculation functions
 │
 │── config.yaml                # Hyperparameters & settings
 │── README.md                  # Project documentation
