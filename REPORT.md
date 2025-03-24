@@ -83,4 +83,3 @@ This project successfully fine-tuned a **pretrained Faster R-CNN model** for LEG
 ## **7. Repository & Acknowledgments**
 **GitHub Repository**: [https://github.com/AlexanderHMagno/R-CNN](https://github.com/AlexanderHMagno/R-CNN)
 
-Let me know if you need any modifications! 🚀🔥
